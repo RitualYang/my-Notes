@@ -6,14 +6,21 @@
 
 ## docker安装
 
-### windows
+1. 检查内核版本，返回的值大于3.10即可。
 
-### MAC
+   `uname -r`
+2. 更新最新版的yum。
 
-### Linux
+   `yum update`
+3. 设置yum源
 
+   `yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo`
+4. 按照docker-ce。
 
+   `yum install docker-ce`
+5. 验证安装是否成功。
 
+   `docker version`
 ##  docker命令
 
 1. 设置开机自动启动。
@@ -169,15 +176,3 @@ docker network disconnet mynet 容器ID
 # 移除网络
 docker network rm mynet
 ```
-
-
-
-## docker-compse
-
-
-
-## dockerfile
-
-
-
-## docker私有仓库
