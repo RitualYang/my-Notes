@@ -1,5 +1,6 @@
 # redis：5种数据类型
 * 针对key的命令
+
     ```shell
     keys       (keys pattern)             # 根据指定规则返回符合条件的key
     del        (del key1 key2)            # 删除指定的key
@@ -34,7 +35,9 @@
    >2. 二进制安全的    
    >3. 高效的计算字符串长度(时间复杂度为O(1))
    >4. 高效的追加字符串操作
+   >5. 数据上限512M
 * 操作命令
+
     ```shell
     set        (set key value)                  # 添加key与对应的value
     get        (get key)                        # 根据key获取对应value
@@ -58,6 +61,7 @@
 * 应用场景
    >列表类型，可以用于实现消息队列，也可以使用它提供的range命令，做分页查询功能。1.最新消息排行榜。2.消息队列，以完成多程序之间的消息交换。可以用push操作将任务存在list中（生产者），然后线程在用pop操作将任务取出进行执行。（消费者）
 * 底层实现
+
   * ziplist
     * 属性
      >1. 由表头和N个entry节点和压缩列表尾部标识符zlend组成的一个连续的内存块    
@@ -79,6 +83,7 @@
    >2. 有序性
 
 * 操作命令
+
    ```shell
    lpush       (lpush key value1 value2)  # 从集合开头往list添加value
    rpush       (rpush key value)          # 从集合末尾往list添加value
@@ -111,20 +116,21 @@
 * 特性
    >1. 存储多个键值对    
 * 操作命令
+
    ```shell
-   hset              (hset key field value)  # 给指定的key添加key-value元素
+   hset              (hset key field value)         # 给指定的key添加key-value元素
    hmset             (hmset key field1 value1 field2 value2)# 同时设置多个键值对数据
-   hget              (hget key field)        # 获取指定的key中filed字段
-   hmget             (hmget key field1 field2)# 获取指定的key中指定字段的值
-   hsetnx            (hsetnx key field value)# 如果key不存在进行插入，如果key和field都不存在不进行插入
-   hexists           (hexists key field)     # 判断指定的key中是否存在field这个字段
-   hlen              (hlen key)              # 获取指定的key中field的数量
-   hdel              (hdel key field1 field2)# 删除指定的key中的指定字段与对应的value
-   hgetall           (hgetall key)           # 获取key中所有的键值对，返回的是一个field一个value
-   hkeys             (hkeys key)             # 获取指定的key中所有字段
-   hvals             (hvals key)             # 获取指定的key中所有的value
-   hincrby           (hincrby key filed count)# 给指定的key的field的字段添加或者减去count这个值
-   hincrbyfloat      (hincrbyfloat key field value)# 给指定的字段添加浮点数的值
+   hget              (hget key field)               # 获取指定的key中filed字段
+   hmget             (hmget key field1 field2)      # 获取指定的key中指定字段的值
+   hsetnx            (hsetnx key field value)       # 如果key不存在进行插入，如果key和field都不存在不进行插入
+   hexists           (hexists key field)            # 判断指定的key中是否存在field这个字段
+   hlen              (hlen key)                     # 获取指定的key中field的数量
+   hdel              (hdel key field1 field2)       # 删除指定的key中的指定字段与对应的value
+   hgetall           (hgetall key)                  # 获取key中所有的键值对，返回的是一个field一个value
+   hkeys             (hkeys key)                    # 获取指定的key中所有字段
+   hvals             (hvals key)                    # 获取指定的key中所有的value
+   hincrby           (hincrby key filed count)      # 给指定的key的field的字段添加或者减去count这个值
+   hincrbyfloat      (hincrbyfloat key field value) # 给指定的字段添加浮点数的值
    ```
 ## 集合set
 * 介绍
@@ -144,6 +150,7 @@
 * 特性
    >1. 不重复性    
 * 操作命令
+
    ```shell
    sadd        (sadd key value1 value2)   # 添加元素
    scard       (scard key)                # 获取成员的数量
@@ -179,21 +186,20 @@
    >1. 有序集合   
    >2. 查询速度快
 * 操作命令
+
    ```shell
-   zadd           (zadd key score1 value1 score2 value2) # 添加成员
-   zcard          (zcard key)                      # 计算元素个数
-   zincrby        (zincrby key number member)      # 给指定的member的分数添加或者减去number
-   zcount         (zcount key min max)             # 获取分数在min和max之间的成员和数量；默认是闭区间
-   zrange         (zrange key start stop [WITHSCORES])# 返回指定排名之间的成员(结果是分数由低到高)
-   zrevrange      (zrevrange key start stop [WITHSCORES])# 返回指定排名之间的成员(结果是分数由高到低)
-   zrangebyscore  (zrangebyscore key min max [withscores][limit offset count])# 根据分数的范围获取成员
-                                                                              # 按照分数：从低到高
-   zrevrangebyscore(zrevrangebyscore key max min [withscores][limit offset count])# 根据分数的范围获                                                                          
-                                                                           # 取成员,按照分数：从低到高
-   zrank          (zrank key member)               # 返回一个成员的排名(从低到高的顺序)
-   zrevrank       (zrevrank key member)            # 返回一个成员的排名(从高到低的顺序)
-   zscore         (zscore key member)              # 获取一个成员的分数
-   zrem           (zrem key member1 member2)       # 删除指定的成员
-   zremrangebyrank(zremrangebyrank key start stop) # 根据排名进行删除
-   zremrangebyscore(zremrangebyscore key min max)  # 根据分数的范围进行删除
+   zadd           (zadd key score1 value1 score2 value2)    # 添加成员
+   zcard          (zcard key)                               # 计算元素个数
+   zincrby        (zincrby key number member)               # 给指定的member的分数添加或者减去number
+   zcount         (zcount key min max)                      # 获取分数在min和max之间的成员和数量；默认是闭区间
+   zrange         (zrange key start stop [WITHSCORES])      # 返回指定排名之间的成员(结果是分数由低到高)
+   zrevrange      (zrevrange key start stop [WITHSCORES])   # 返回指定排名之间的成员(结果是分数由高到低)
+   zrangebyscore  (zrangebyscore key min max [withscores][limit offset count])# 根据分数的范围获取成员按照分数：从低到高
+   zrevrangebyscore(zrevrangebyscore key max min [withscores][limit offset count])# 根据分数的范围获                                                                          取成员,按照分数：从低到高
+   zrank          (zrank key member)                        # 返回一个成员的排名(从低到高的顺序)
+   zrevrank       (zrevrank key member)                     # 返回一个成员的排名(从高到低的顺序)
+   zscore         (zscore key member)                       # 获取一个成员的分数
+   zrem           (zrem key member1 member2)                # 删除指定的成员
+   zremrangebyrank(zremrangebyrank key start stop)          # 根据排名进行删除
+   zremrangebyscore(zremrangebyscore key min max)           # 根据分数的范围进行删除
    ```
