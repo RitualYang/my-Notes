@@ -34,6 +34,10 @@
 * `Ctrl`+`Shift`+`Enter` ：代码语句补全
 * `Alt`+`Insert`：显示Generate（生成get/set/构造方法，重写方法）
 * `Ctrl`+`Alt`+`T` : 显示Surround With（生成if/while/for/try-catch/synchronized/Runnable等）
+* `Ctrl`+`P` : 查看当前方法重载参数
+* `Ctrl`+`Q` : 查看当前方法/类的文档
+* `Ctrl`+`O` : 重写方法
+
 * `Alt`+`Enter`： 显示修复提示
 * `Ctrl`+`D` ：复制选中部分
 * `Ctrl`+`X` ： 剪切选中部分
