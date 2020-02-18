@@ -14,7 +14,7 @@
 
   ```shell
   docker run -p 6379:6379 --name redis -d redis:latest redis-server
-  # -p 6379:6379 :将容器的6379端口映射到主机的6379端口
+  # -p 6379:6379 :将主机的6379端口映射到容器的6379端口
   # --name redis :设置容器名为redis
   # -d  : 后台启动（redis.conf中daemonize必须设置为no，否则会无法启动）
   # redis:lastest :挂载运行的镜像
@@ -54,7 +54,7 @@
 * 准备工作：
 
   ```shell
-  vim /usr/docker/redis/docker-compose-yml
+  vim /usr/docker/redis/docker-compose.yml
   
   version: "3"
   services:
