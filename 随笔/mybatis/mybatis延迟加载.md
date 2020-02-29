@@ -31,6 +31,7 @@
 *  深度延迟加载 
 
   > 将关联对象的详情（具体数据，如id、name）侵入到主加载对象，作为主加载对象的详情的一部分出现。当要访问主加载对象的详情时才会查询主表，但由于关联对象详情作为主加载对象的详情一部分出现，所以这个查询不仅会查询主表，还会查询关联表。
+  
 
 #### 注解开发
 
@@ -39,8 +40,17 @@
 @Result(property = "userInfoMap",
 			many = @Many(select = "com.wty.mapper.UserInfoMapper.findAllByUid",
 			            fetchType = FetchType.LAZY))
-// fetchType:开启延时加载。LAZY：延时加载。EAGER：立即加载。DEFAULT：默认。 
+// fetchType:加载类型。LAZY：延时加载。EAGER：立即加载。DEFAULT：默认。 
 ```
 
 #### xml开发
+
+* 配置
+
+```xml
+<setting name="lazyLoadingEnabled" value="true" />  <!--开启懒加载-->
+<setting name="aggressiveLazyLoading" value="false" /> <!--true：调用时加载，false：主对象调用加载-->
+```
+
+
 

@@ -2,43 +2,92 @@
 
 ## 搜索
 
-* `Shift`+`Shift` ： 全局搜索
+* `Shift`+`Shift` ： 全局搜索(勾选`Include non-project items`功能更强大)
+
+  ![3ylJET.gif](https://s2.ax1x.com/2020/02/29/3ylJET.gif)
+
 * `Ctrl`+`N` ： 搜索类
+
+  ![3ylt5F.gif](https://s2.ax1x.com/2020/02/29/3ylt5F.gif)
+
 * `Ctrl`+`Shift`+`N` ： 搜索文件
-* `Ctrl`+`F` ：搜索当前文件夹匹配字符
+
+  ![3y35Af.gif](https://s2.ax1x.com/2020/02/29/3y35Af.gif)
+
+* `Ctrl`+`F` ：搜索当前文件下匹配字符
+
+  ![3yGbmn.gif](https://s2.ax1x.com/2020/02/29/3yGbmn.gif)
+
 * `Ctrl`+`Shift`+`F` ：搜索当前项目下所有匹配字符的配置
+
+  ![3y3gcd.gif](https://s2.ax1x.com/2020/02/29/3y3gcd.gif)
+
 * `Ctrl`+`F12` ：搜索当前类的方法
+
+  ![3yY9C8.gif](https://s2.ax1x.com/2020/02/29/3yY9C8.gif)
+
 * `Ctrl`+`B` ： 搜索当前方法/类/接口的实现位置
-* `Ctrl`+`Alt`+`B` : 搜索当前接口/类的 继承或者实现位置
+
+  ![3yYC8S.gif](https://s2.ax1x.com/2020/02/29/3yYC8S.gif)
 
 ## 视图查看
 
 * `Ctrl`+`H` ： 查看继承关系（列表形式）
+
+  ![3ydPne.gif](https://s2.ax1x.com/2020/02/29/3ydPne.gif)
+
 * `Ctrl`+`Alt`+`U` ： 查看继承关系---小图（树状图形式）
-* `Ctrl`+`Shift`+`Alt`+`U` ：查看继承关系新建---窗体（树状图形式）
+
+  ![3yazp6.gif](https://s2.ax1x.com/2020/02/29/3yazp6.gif)
+
+* `Ctrl`+`Shift`+`Alt`+`U` ：查看继承关系新建---窗体（树状图形式与上图类似）
 
 ## 修改
 
 * `Ctrl`+`R` ： 修改当前文件下字符
+
 * `Ctrl`+`Shift`+`R` ：修改当前项目下匹配字符
+
+  ![3yajt1.gif](https://s2.ax1x.com/2020/02/29/3yajt1.gif)
 
 ## 跳转
 
 * `F2` ： 跳转到当前文件报错位置
+
+  ![3ydp6O.gif](https://s2.ax1x.com/2020/02/29/3ydp6O.gif)
+
 * `Ctrl`+`G` ： 跳转到当前文件指定行
-* `Ctrl`+`Shift`+`T` ：跳转到测试位置
+
+  ![3ydS1K.gif](https://s2.ax1x.com/2020/02/29/3ydS1K.gif)
 
 ## 编辑
 
 * `Ctrl`+`Space` ：基本代码补全
+
 * `Ctrl`+`Shift`+`Enter` ：代码语句补全
+
 * `Shift`+`F6` ： 重命名（包括其他使用的位置）
+
 * `Alt`+`Insert`：显示Generate（生成get/set/构造方法，重写方法）
+
+  ![3yavfx.gif](https://s2.ax1x.com/2020/02/29/3yavfx.gif)
+
 * `Ctrl`+`Alt`+`T` : 显示Surround With（生成if/while/for/try-catch/synchronized/Runnable等）
+
+  ![3yd9XD.gif](https://s2.ax1x.com/2020/02/29/3yd9XD.gif)
+
+* `Ctrl`+`Shift`+`T` ：创建测试方法
+
 * `Ctrl`+`P` : 查看当前方法重载参数
+
 * `Ctrl`+`Q` : 查看当前方法/类的文档
+
 * `Ctrl`+`O` : 重写方法
+
 * `Alt`+`Enter`： 显示修复提示
+
 * `Ctrl`+`D` ：复制选中部分
+
 * `Ctrl`+`X` ： 剪切选中部分
+
 * `Ctrl`+`/` ：注释选择部分
