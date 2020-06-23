@@ -26,16 +26,15 @@
   * 准备工作：
 
     ```shell
-    mkdir /usr/docker
-    mkdir /usr/docker/nginx
-    mkdir /usr/docker/nginx/www       # 存放映射访问的界面
-    touch /usr/docker/nginx/nginx.conf # 配置文件看文章底部
-    ```
-
+    docker container cp nginx:/etc/nginx .
+    mv nginx conf
+    mkdir nginx
+    mv conf nginx/
+    
+  ```
+  
   ```shell
-  docker run -p 80:80 --name nginx -v /usr/docker/nginx/nginx.conf:/etc/nginx/nginx.conf -d nginx
-  # -v /usr/docker/nginx/nginx.conf:/etc/nginx/nginx.conf :挂载配置文件
-  # -v /usr/docker/nginx/www:/usr/share/nginx/html : 挂载映射访问界面（需要时挂载）
+  docker run -p 80:80 --name nginx -v /mydata/nginx/nginx.conf:/etc/nginx -v /mydata/nginx/logs:/var/log/nginx -v /mydata/nginx/html:/usr/share/nginx/html -d nginx
   ```
 
 ### docker-compose启动
@@ -43,7 +42,7 @@
 * 准备工作：
 
   ```shell
-  vim /usr/docker/nginx/docker-compose.yml
+  vim /mydata/nginx/docker-compose.yml
   
   version: "3"
   services:
@@ -55,7 +54,7 @@
         - 80:80
       volumes:
         # 目录映射
-        - ./nginx.conf:/etc/nginx/nginx.conf
+        - ./conf:/etc/nginx
         # - ./www:/usr/share/nginx/html
   ```
   

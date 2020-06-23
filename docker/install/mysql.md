@@ -30,18 +30,18 @@
   * 准备工作：
 
     ```shell
-    mkdir /usr/docker
-    mkdir /usr/docker/mysql
-    mkdir /usr/docker/mysql/data
-    mkdir /usr/docker/mysql/conf.d
-    touch /usr/docker/mysql/conf.d/my.cnf # 配置信息见文章末尾
+    mkdir /mydata
+    mkdir /mydata/mysql
+    mkdir /mydata/mysql/data
+    mkdir /mydata/mysql/conf.d
+    touch /mydata/mysql/conf.d/my.cnf # 配置信息见文章末尾
   #MySQL的默认配置文件是 /etc/mysql/my.cnf 文件。如果想要自定义配置，建议向/etc/mysql/conf.d 目录中创建 .cnf 文件。新建的文件可以任意起名，只要保证后缀名是 cnf 即可。新建的文件中的配置项可以覆盖 /etc/mysql/my.cnf 中的配置项。
     ```
   
   ```shell
-  docker run --name mysql -p 3306:3306 -v /usr/docker/mysql/conf.d:/etc/mysql/conf.d -v /usr/docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql
-  # -v /usr/docker/mysql/conf.d:/etc/mysql/conf.d : 挂载mysql配置文件 
-  # -v /usr/docker/mysql/data:/var/lib/mysql		: 挂载mysql的data数据，后置目录与配置文件保持一致
+  docker run --name mysql -p 3306:3306 -v /mydata/mysql/conf.d:/etc/mysql/conf.d -v /mydata/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql
+  # -v /mydata/mysql/conf.d:/etc/mysql/conf.d : 挂载mysql配置文件 
+  # -v /mydata/mysql/data:/var/lib/mysql		: 挂载mysql的data数据，后置目录与配置文件保持一致
   ```
 
 ### docker-compose启动
@@ -49,7 +49,7 @@
 * 准备工作：
 
   ```shell
-  vim /usr/docker/mysql/docker-compose.yml
+  vim /mydata/mysql/docker-compose.yml
   
   version: "3"
   services:

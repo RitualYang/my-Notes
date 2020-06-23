@@ -30,15 +30,15 @@
   * 准备工作：
 
     ```shell
-    mkdir /usr/docker
-    mkdir /usr/docker/nacos
-    mkdir /usr/docker/nacos/logs
-    mkdir /usr/docker/nacos/init.d
-    touch /usr/docker/nacos/init.d/custom.properties # 配置见文章底部
+    mkdir /mydata
+    mkdir /mydata/nacos
+    mkdir /mydata/nacos/logs
+    mkdir /mydata/nacos/init.d
+    touch /mydata/nacos/init.d/custom.properties # 配置见文章底部
     ```
 
   ```shell
-  docker run --name nacos -d -p 8848:8848 -e MODE=standalone -v /usr/docker/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties -v /usr/docker/nacos/logs:/home/nacos/logs nacos/nacos-server
+  docker run --name nacos -d -p 8848:8848 -e MODE=standalone -v /mydata/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties -v /mydata/nacos/logs:/home/nacos/logs nacos/nacos-server
   # -v nacos/init.d/cust... : custom.properties挂载配置文件
   # -v nacos/logs:...       : 挂载日志目录
   ```
@@ -48,7 +48,7 @@
 * 准备工作：
 
   ```shell
-  vim /usr/docker/nacos/docker-compose.yml
+  vim /mydata/nacos/docker-compose.yml
   
   version: "3"
   services:

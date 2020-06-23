@@ -32,18 +32,18 @@
   * 准备工作：
 
     ```shell
-    mkdir /usr/docker
-    mkdir /usr/docker/redis
-    mkdir /usr/docker/redis/data
-    touch /usr/docker/redis/redis.conf # 配置文件看文章底部
+    mkdir /mydata
+    mkdir /mydata/redis
+    mkdir /mydata/redis/data
+    touch /mydata/redis/redis.conf # 配置文件看文章底部
     ```
 
   ```shell
-  docker run -p 6379:6379 --name redis -v /usr/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/docker/redis/data:/data -d redis:latest redis-server /etc/redis/redis.conf
+  docker run -p 6379:6379 --name redis -v /mydata/redis/redis.conf:/etc/redis/redis.conf -v /mydata/redis/data:/data -d redis:latest redis-server /etc/redis/redis.conf
     
-  # -v /usr/docker/redis/redis.conf:/etc/redis/redis.conf
-    	# 将本地/usr/docker/redis/redis.conf文件挂载到容器中/etc/redis/redis.conf
-  # -v /usr/docker/redis/data:/data
+  # -v /mydata/redis/redis.conf:/etc/redis/redis.conf
+    	# 将本地/mydata/redis/redis.conf文件挂载到容器中/etc/redis/redis.conf
+  # -v /mydata/redis/data:/data
     	# 关联本地/docker/redis/data文件到容器中/data（redis数据存储位置，方便迭戈与持久化）
   # redis-server /etc/redis/redis.conf
     	# 在容器中执行redis-server命令，加载/etc/redis/redis.conf配置
@@ -54,7 +54,7 @@
 * 准备工作：
 
   ```shell
-  vim /usr/docker/redis/docker-compose.yml
+  vim /mydata/redis/docker-compose.yml
   
   version: "3"
   services:

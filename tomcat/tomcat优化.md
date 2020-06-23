@@ -9,7 +9,7 @@
     	　　-server 启用jdk 的 server 版
     	　　-Xms java虚拟机初始化时的最小内存
     	　　-Xmx java虚拟机可使用的最大内存
-    	　　-XX: PermSize 内存永久保留区域
+    	　　-XX:PermSize 内存永久保留区域
     	　　-XX:MaxPermSize 内存最大永久保留区域
    
    例（根据服务器的实际内存进行配置）：
@@ -48,9 +48,11 @@
 1. Tomcat缓存优化
 
    ```xml
-<Connector port="8080" protocol="HTTP/1.1"
-connectionTimeout="20000"
-redirectPort="8443"
+   <Connector port="8080" protocol="HTTP/1.1"
+   connectionTimeout="20000"
+   redirectPort="8443"
+   ```
+
 	maxThreads="800"									# 缓存优化，作用参照上面。
 	acceptCount="1000"									# 缓存优化，作用参照上面。
 />  
@@ -62,3 +64,5 @@ redirectPort="8443"
 
 **参考**：[菲宇的Tomcat优化（内存，并发，缓存，安全，网络，系统等）](https://cloud.tencent.com/developer/article/1444703)
 
+
+   ```

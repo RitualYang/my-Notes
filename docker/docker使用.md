@@ -176,3 +176,23 @@ docker network disconnet mynet 容器ID
 # 移除网络
 docker network rm mynet
 ```
+
+## 问题解决
+
+* 虚拟机重启，外部网络无法访问服务。
+
+```shell
+解决办法：
+# vi /etc/sysctl.conf
+或者
+# vi /usr/lib/sysctl.d/00-system.conf
+添加如下代码：
+    net.ipv4.ip_forward=1
+ 
+重启network服务
+# systemctl restart network
+ 
+查看是否修改成功
+# sysctl net.ipv4.ip_forward
+```
+
