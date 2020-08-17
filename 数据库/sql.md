@@ -1,15 +1,40 @@
 # sql语句
 
+* `desc` 查询列的类型
+
 ```sql
 select 查询列表
-from 表1 别名 【连接类型】
-join 表2 别名
-on 连接条件
+from 表1
+【连接类型：inner|left|right】 join 表2 on 连接条件
  【where 筛选条件】
  【group by 分组】
  【having 筛选条件】
  【order by 排序列表】
  limit 起始索引,数目;
+```
+
+```sql
+INSERT INTO 表名 VALUES (属性,属性...),(属性,属性...)...;
+```
+
+```sql
+-- 单表
+UPDATE 表名 SET 字段=属性 WHERE 筛选条件
+-- 多表
+UPDATE 表名 
+inner|left|right join 表名2 on 连接条件
+SET 字段=属性 WHERE 筛选条件
+```
+
+```sql
+-- 单表
+DELETE from 表名 where 筛选条件
+-- 多表
+DELETE 表名 
+inner|left|right join 表名2 on 连接条件
+WHERE 筛选条件
+-- other
+truncate table 表名; -- 清空数据
 ```
 
 ## 函数
@@ -87,5 +112,58 @@ on 连接条件
 
   * `is null`
 
+### DDL语言
+
+* 常用关键字
+  * 创建： `create`
+  * 修改： `alter`
+  * 删除： `drop`
+
+   * 库的管理
+
+         * `create database [if not exists] 库名;` : 创建库，【if not exists】如果库不存在。
+         * `alter database 库名 character set 字符集;` : 修改库的字符集。
+         * `drop database [if exists] 库名;` : 删除库，【if exists】如果库存在。
+
+* 表的管理
+
+  * ```sql
+    create table [if not exists] 表名(
+    	列名 列的类型【(长度) 约束】 【COMMENT '属性解释'】,
+    	列名 列的类型【(长度) 约束】,
+    	列名 列的类型【(长度) 约束】,
+    	...
+    	列名 列的类型【(长度) 约束】
+    );
+    -- 复制表
+create table 表名 like 被复制的表名;
+    -- 复制表及数据
+    create table 表名
+    select * from 被复制的表名;
+    ```
     
+  * ```sql
+    -- 修改列名
+    alter table 表名 change column 旧列名 新列名 类型;
+    -- 修改列的类型或约束
+    alter table 表名 modify column 列名 新类型;
+  -- 添加新列
+    alter table 表名 add column 列名 类型;
+    -- 删除列
+    alter table 表名 drop column 列名;
+    -- 修改表名
+  alter table 旧表名 rename to 新表名;
+    ```
+    
+  * ```
+    drop table [if exists] 表名;
+    ```
+    
+    
+    
+    
+    
+
+
+
 
