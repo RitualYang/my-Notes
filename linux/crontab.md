@@ -28,6 +28,9 @@
 /sbin/service crond restart     # 重启服务
  
 /sbin/service crond reload      # 重新载入配置
+  
+crontab -e						#编辑任务
+crontab -l                      #查看任务列表
 ```
 
 3. 查看crontab服务状态。

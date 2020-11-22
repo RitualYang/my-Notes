@@ -7,3 +7,4 @@ target/
 logs/*.log
 upload/*.jpg
 upload/temp/*.jpg
+images/*
