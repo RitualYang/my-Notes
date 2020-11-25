@@ -34,4 +34,24 @@ server {
 	}
 }
 ```
+### nginx解决跨域
+```shell
+#允许跨域请求的域，*代表所有
+add_header 'Access-control-allow-0rigin' *;
+#允许带上cookie请求
+add header 'Access-control-allow-credentials' 'true';
+#允许请求的方法，比如GET/POST/PUT/ DELETE
+add header 'Access-control-allow-methods' *;
+#允许请求的 header
+add header 'Access-control-allow-headers' *;
+```
 
+### nginx防盗链配置支持
+```shell
+#对源站点验证
+valid_referers *.taobao.com
+#非法引入会进入下方判断
+if ($invalid_referer) {
+return 404
+}
+```

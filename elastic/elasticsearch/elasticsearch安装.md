@@ -5,7 +5,7 @@
 tar -zxvf elasticsearch-7.3.2-linux-x86_64.tar.gz
 
 #实现远程访问需要对config/elasticsearch.yml进行配置
-network.host: 10.177.33.47   #本地IP地址
+network.host: 192.168.37.128   #本地IP地址
 http.port: 9200
 
 #配置elasticsearch允许跨域访问
@@ -28,7 +28,7 @@ Caused by: java.lang.RuntimeException: can not run elasticsearch as root
 ```shell
 #创建elsearch用户组及elsearch用户：
 groupadd elsearch
-useradd elsearch -g elsearch -p  es@123
+useradd elsearch -g elsearch -p  123456
 
 
 #更改elasticsearch文件夹及内部文件的所属用户及组为elsearch:elsearch
@@ -40,7 +40,7 @@ cd /opt/elasticsearch/bin
 ./elasticsearch
 
 #查看es状态
-curl 10.177.33.47:9200
+curl 192.168.37.128:9200
 #或者通过浏览器查看
 firefox
 localhost:9200
@@ -83,10 +83,18 @@ elsearch   soft   nproc   4096
  #重新启动
  ./elasticsearch
 #windows客户端网页输入ip和端口即可登陆linux上的Elasticsearch
- 10.177.33.47:9200
+  192.168.37.128:9200
 
 #需要可关闭防火墙:systemctl stop firewalld.service
 ```
+```shell
+设置JVM启动参数
+vim /config/jvm.options
+
+-Xms258m
+-Xmx258m
+```
+
 
 ## 安装
 
@@ -141,7 +149,7 @@ Running "connect:server" (connect) task
 Waiting forever...
 Started connect web server on http://localhost:9100
 
-#在浏览器中输入10.177.33.47：9100打开elasticsearch-head
-Elasticsearch连接地址为：http://10.177.33.47：9200/
+#在浏览器中输入192.168.37.128：9100打开elasticsearch-head
+Elasticsearch连接地址为：http://192.168.37.128：9200/
 ```
 

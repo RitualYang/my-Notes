@@ -212,3 +212,29 @@ location [ = | ~ | ~* | ^~ ] url {
 
 * 注意：如果 url 包含正则表达式，则必须要有 `~ `或者 `~*`标识。
 
+
+### Keepalived提高吞吐量
+
+* `keepalived` : 设置长连接处理的数量
+* `proxy_http_version` : 设置长连接http版本为1.1
+* `proxy_set_header` : 清除connection header信息
+
+
+```shell
+http {
+	upstream myserver {
+        server 192.168.37.139:8801 weight=1;
+        server 192.168.37.139:8802 weight=1;
+        keepalive 32;
+	}
+	server {
+		location / {
+			proxy_pass http://myserver;
+			proxy_connect_timeout 10;
+			# 配合keepalive
+			proxy_http_version 1.1;   
+			proxy_set_header Connection "";
+		}
+	}
+}
+```

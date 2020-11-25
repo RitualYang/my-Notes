@@ -1,3 +1,4 @@
+## nginx缓存
 ```shell
 # 设置缓存保存的目录 
 #levels	   ⽬录分级

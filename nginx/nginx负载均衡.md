@@ -41,7 +41,9 @@ upstream server_pool{
 ```
 
 3、ip_hash
-每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。 例如：
+`ip_hash`:每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。`url_hash`:根据每次请求的url地址，hash后访问到固定的服务器节点。
+* `least_conn`:哪台服务器的连接数量最少会将新请求转发到该服务器上
+注意:不能把后台服务器直接移除，只能标记down 例如：
 
 ```shell
  upstream server_pool{ 
@@ -56,7 +58,7 @@ upstream server_pool{
 4、fair（第三方）
 按后端服务器的响应时间来分配请求，响应时间短的优先分配。
 
-```json
+```shell
  upstream server_pool{ 
      server 192.168.5.21:80; 
      server 192.168.5.22:80; 
@@ -70,8 +72,8 @@ upstream server_pool{
 
 * `max_conns` : 服务器最大的连接数量（默认为0，不受任何限制）
 * `slow_start` : 缓慢提升权重（商业版）
-* `down`： 服务关闭
-* `backup` : 标识机器为备份机，当某一天机器挂掉后，备份机才会被访问
+* `down`： 服务关闭(标识服务不可用)
+* `backup` : 标识机器为备份机，当某一天机器挂掉后，备份机才会被访问(不能使用在`hash`和`random load balancing`中)
 * `max_fails`:最大失败的次数，当达到后，该机器会无法被访问。
 * `fail_timeout`：在一定时间内失败达到次数，该机器会宕机15秒。请求会发送到其他机器上，15秒过后，该机器重新被正常访问。
 
