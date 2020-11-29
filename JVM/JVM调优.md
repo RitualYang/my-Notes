@@ -17,6 +17,8 @@
 -XX:+PrintGCDateStamps — 打印 GC 操作的时间戳
 -XX:NewSize / XX:MaxNewSize — 设置新生代大小/新生代最大大小
 -XX:NewRatio — 可以设置老生代和新生代的比例
+-XX:SurvivorRatio - 设置survivor区内存大小比值
+-XX:PretenureSizeThreshold - 对象大小大于该值就在老年代分配，0表示不作限制
 -XX:PrintTenuringDistribution — 设置每次新生代 GC 后输出幸存者乐园中对象年龄的分布
 -XX:InitialTenuringThreshold / -XX:MaxTenuringThreshold：设置老年代阀值的初始值和最大值
 -XX:TargetSurvivorRatio：设置幸存区的目标使用率
