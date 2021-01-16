@@ -15,3 +15,4 @@
 * `HighlightBracketPair`: 代码片段高亮
 * `RestfulToolkit`: SpringMvc接口快速查看
 * `Key promoter X`
+* `Call Graph`查看代码函数库调用

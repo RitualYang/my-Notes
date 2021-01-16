@@ -168,6 +168,30 @@
 
 ### Shenandoah垃圾收集器
 
+* 低延迟垃圾收集器
+* 启用参数
+  * `-XX:-UnlockExperimentalVMOptions` , `-XX:+UseShenandoahGC`
+* 与G1类似
+  * 基于Region的内存布局，有用于存放大对象的Humongous Region，回收策略也是同样是优先处理回收价值最大的Region
+  * 并发的整理算法，Shenandoah默认是不适用分代收集的。解决跨region引用的机制不同，G主要基于Rememberd Set、CardTable，而Shenandoah是基于连接矩阵
+* 工作步骤
+  * 初始标记
+  * :zap: 并发标记
+  * 最终标记
+  * 并发清理
+  * :zap:并发回收
+  * 初始引用更新
+  * :zap:并发引用更新
+  * 最终引用更新
+  * 并发清理
+* 使用场景
+  * 低延迟、响应快的业务场景
+
 ### ZGC垃圾收集器
+
+* 使用场景
+  * 低延迟、响应快的业务场景
+* 启用参数
+  * `-XX:UnlockExperimentalVMOptions`,`-XX:+UseZGC`
 
 ### Epsilon垃圾收集器
