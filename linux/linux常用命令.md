@@ -4,6 +4,8 @@
 
 ### ps
 
+`ps -ef|grep name` :筛选 查找name的进程
+
 ### cd
 
 ### ls

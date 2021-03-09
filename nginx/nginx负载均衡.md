@@ -100,12 +100,20 @@ http {
         server 192.168.0.5:6666 ;
         server 192.168.0.7:6666 ;
     }
-    #调度算法4:url_hash(需安装第三⽅插件).此⽅法按访问url的hash结果来分配请求,使每个url定向到同⼀个后端服务器,可以进⼀步提⾼后端缓存服务器的效率.Nginxupstream webhost {
+    #调度算法4:url_hash(需安装第三⽅插件).此⽅法按访问url的hash结果来分配请求,使每个url定向到同⼀个后端服务器,可以进⼀步提⾼后端缓存服务器的效率.
+    upstream webhost {
         server 192.168.0.5:6666 ;
         server 192.168.0.7:6666 ;
         hash $request_uri;
     }
-    #调度算法5:fair(需安装第三⽅插件).这是⽐上⾯两个更加智能的负载均衡算法.此种算法可以依据⻚⾯⼤⼩和加载时间⻓短智能地进⾏负载均衡,也就是根据后端服#
+    #调度算法5:fair(需安装第三⽅插件).这是⽐上⾯两个更加智能的负载均衡算法.此种算法可以依据⻚⾯⼤⼩和加载时间⻓短智能地进⾏负载均衡,也就是根据后端服务器响应时间来分配请求。
+    upstream webhost {
+        server 192.168.0.5:6666 ;
+        server 192.168.0.7:6666 ;
+        fair;
+    }
+    
+    #
     #虚拟主机的配置(采⽤调度算法3:ip_hash)
     server {
         listen 80;
@@ -127,8 +135,7 @@ http {
             proxy_buffer_size 4k; #设置代理服务器（nginx）保存⽤⼾头信息的缓冲区⼤⼩
             proxy_buffers 4 32k; #proxy_buffers缓冲区,⽹⻚平均在32k以下的设置
             proxy_busy_buffers_size 64k; #⾼负荷下缓冲⼤⼩（proxy_buffers*2）
-            proxy_temp_file_write_size 64k;
-            #设定缓存⽂件夹⼤⼩,⼤于这个值,将从upstream服务器传
+            proxy_temp_file_write_size 64k;#设定缓存⽂件夹⼤⼩,⼤于这个值,将从upstream服务器传
     	}
 	}
 }
