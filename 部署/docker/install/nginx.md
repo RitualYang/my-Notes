@@ -31,7 +31,7 @@
     mkdir nginx
     mv conf nginx/
     
-  ```
+    ```
   
   ```shell
   docker run -p 80:80 --name nginx -v /mydata/nginx/nginx.conf:/etc/nginx -v /mydata/nginx/logs:/var/log/nginx -v /mydata/nginx/html:/usr/share/nginx/html -d nginx

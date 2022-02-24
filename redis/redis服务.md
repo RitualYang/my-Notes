@@ -7,7 +7,7 @@
 * 从库命令：`SLAVEOF ip:port`
 
 * `redis.conf`配置：
-
+  
   ```shell
   # 主从复制配置
   replicaof 192.168.37.138 6379 # 从ip192.168.37.138:6379的redis实例复制数据
@@ -19,12 +19,10 @@
   dir /usr/local/redis‐5.0.3/data/6380
   ```
 
-  
-
 ## 哨兵模式
 
 * sentinel.conf配置：
-
+  
   ```shell
   port 26379
   daemonize yes
@@ -38,13 +36,13 @@
   ```
 
 * 启动：
-
+  
   `redis-sentinel sentinel.conf`
 
 ## 集群模式
 
 * `redis.conf`配置：
-
+  
   ```shell
   daemonize yes
   port 8001 #分别对每个机器的端口号进行设置
@@ -61,10 +59,8 @@
   masterauth rediscluster #设置集群节点间访问密码，跟上面一致
   ```
 
-  
-
 * `redis-cli`命令：
-
+  
   ```shell
   /usr/local/redis‐5.0.9/src/redis‐cli 
   ‐a rediscluster 
@@ -72,5 +68,3 @@
   ‐‐cluster‐replicas 1 
   192.168.37.138:8001 192.168.37.138:8002 192.168.37.138:8003 192.168.37.138:8004 192.168.37.138:8005 192.168.37.138:8006
   ```
-
-  

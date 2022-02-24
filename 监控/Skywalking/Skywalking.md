@@ -1,7 +1,7 @@
 
 
 #### 下载
-* 前往http：//skywalking.apache.org/downloads/ 找对自己的操作系统，下载即可。
+* 前往`http：//skywalking.apache.org/downloads/ `找对自己的操作系统，下载即可。
 
 #### 环境需求
 * JDK版本在JDK8-JDK12之间
@@ -44,13 +44,14 @@ startup.bat
 ```
 参考文档
 https://github.com/apache/skywalking/blob/master/docs/en/setup/backend/backend-ui-setup.md
+
 ## 详细使用
 
 使用用Skywalking监控应用。
 Skywalking有多种使用方式，目前最流行（也是最强大）的使用方式是基于Javaagent的。
 Javaagent支持的框架、中间件等，可在https：//github.com/apache/skywaIking/b10b/v6.6.O/docs/en/setup/service—agent/java—agent/Supported—Iist.md查看·
-* 除Javaagent方式外，Skywalking还支持其他语言的agent，详见https：//github.com/apache/skywalking/blob/v6.6.0/docs/en/setup/README.md#language—agents—in—service
-。此外，Skywalking还支持基于ServiceMesh（例如Istio详见https：//github.com/apache/skywalking/blob/v6.6.O/dOCS/en/setup/README.md#service—mesh）、Proxy〈例如EnvoyProxy,详见https://github.com/apache/skywaIking/blob/v6.6.0/docs/en/setup/README.md#service—mesh）不过这两种使用方式目前还不是特别流行，故此不做赘述，其实也比较简单。感兴趣的童鞋也可以研究一下。
+* 除Javaagent方式外，Skywalking还支持其他语言的agent，详见`https：//github.com/apache/skywalking/blob/v6.6.0/docs/en/setup/README.md#language—agents—in—service`
+。此外，Skywalking还支持基于ServiceMesh（例如Istio详见`https：//github.com/apache/skywalking/blob/v6.6.O/dOCS/en/setup/README.md#service—mesh`）、Proxy〈例如EnvoyProxy,详见`https://github.com/apache/skywaIking/blob/v6.6.0/docs/en/setup/README.md#service—mesh`）不过这两种使用方式目前还不是特别流行，故此不做赘述，其实也比较简单。感兴趣的童鞋也可以研究一下。
 ### 配置javaagent
 
 找到Skywalking包中的`agent`目录，`agent`目录结构如下

@@ -24,7 +24,7 @@ docker pull kibana:7.4.2
 * 启动容器
 
   ```shell
-  docker run --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e ES_JAVA_OPTS="-Xms256m -Xmx512m" -v /mydata/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v /mydata/elasticsearch/data:/usr/share/elasticsearch/data -v /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins -d elasticsearch:7.4.2
+  docker run --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e ES_JAVA_OPTS="-Xms521m -Xmx512m" -v /mydata/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v /mydata/elasticsearch/data:/usr/share/elasticsearch/data -v /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins -d elasticsearch:7.4.2
   ```
 
   
@@ -40,6 +40,9 @@ docker pull kibana:7.4.2
   
 
 * 数据地址：[https://raw.githubusercontent.com/elastic/elasticsearch/master/docs/src/test/resources/accounts.json]
+
+* 汉化：` /usr/share/kibana/config/kibana.yml` 中修改，
+  添加`i18n.locale: zh-CN`
 
 ## ik分词器
 

@@ -52,5 +52,8 @@ systemctl disable firewalld
 
 
 
+### cat
 
+`cat log_info.log | grep 'terimalShopStock: startDate'`
 
+`sed -n '/2021-12-13 15:25:40/,/2021-12-13 15:25:43/p' log_info.log`
